@@ -1,8 +1,10 @@
 'use strict';
 
+import path from "path";
+
 const index = async (req, res) => {
-    // Shouldn't get here
-    res.sendStatus(500);
+    console.log('sending index.html');
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 }
 
 

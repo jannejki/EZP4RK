@@ -11,8 +11,8 @@ const port = 3000;
     // express app
     const app = express();
 
-    app.use(express.static(path.join(__dirname, 'public')));
     app.use('/', webRoute);
+    app.use(express.static(path.join(__dirname, 'public')));
 
     app.listen(port, () => {
         console.log('listening port: ', 3000)
