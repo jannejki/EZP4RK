@@ -1,0 +1,23 @@
+{
+  "name": "ezp4rk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jannejki/EZP4RK.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jannejki/EZP4RK/issues"
+  },
+  "homepage": "https://github.com/jannejki/EZP4RK#readme",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.18.1"
+  }
+}
