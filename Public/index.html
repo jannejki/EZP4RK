@@ -4,10 +4,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>EZ-P4RK</title>
-</head>
-<body>
-    <h1>EZ-P4RK</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nihil repudiandae eligendi? Dolor in modi ea enim eveniet a voluptates, hic dolore maxime, animi molestias ipsam illo dicta ex molestiae!</p>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<!--------HEADER-------->
+    <body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="/images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <img class="close" onclick="hideMenu()" src="/images/close.png" alt="close">
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+            <img class="menu" onclick="showMenu()" src="/images/menu.png" alt="menu">
+        </nav>
+        <div class="text-box">
+            <h1>EZ-P4RK</h1>
+            <p>Lisää käyttäjäkokemuksia kommenttikenttien näköiseti ja niihin pienellä meidän kuvat</p>
+            <a href="" class="app-btn">See available parking spots</a>
+        </div>
+    </section>
+<!--------ABOUT-------->
+    <section class="about">
+        <div class="ab">
+            <h1>Project Pictures</h1>
+            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus eaque, quae facilis eveniet, magni aliquid possimus neque fugiat ipsum sequi ducimus assumenda perferendis fuga officia ipsa id quod voluptate sit nesciunt ratione perspiciatis esse adipisci doloremque nemo. Architecto ipsa eligendi, beatae totam velit minima repellat repellendus ad perspiciatis quos odio.</p>
+        </div>
+        <div class="gallery">
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="/images/camera.jpg" alt="camera">
+                    </div>
+                    <div class="contentBx">
+                        <div class="content">
+                            <h3>Post One</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="/images/flowchart.jpg" alt="camera">
+                    </div>
+                    <div class="contentBx">
+                        <div class="content">
+                            <h3>Post Two</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="/images/raspi testing.jpg" alt="camera">
+                    </div>
+                    <div class="contentBx">
+                        <div class="content">
+                            <h3>Post Three</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="/images/raspi camera.jpg" alt="camera">
+                    </div>
+                    <div class="contentBx">
+                        <div class="content">
+                            <h3>Post Four</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="/images/joonaslookingjannewondering.jpg" alt="camera">
+                    </div>
+                    <div class="contentBx">
+                        <div class="content">
+                            <h3>Post Five</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="/images/tamperprotectino.jpg" alt="camera">
+                    </div>
+                    <div class="contentBx">
+                        <div class="content">
+                            <h3>Post Six</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--------SCRIPT-------->
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+    function hideMenu() {
+        navLinks.style.right = "-150px";
+    }
+</script>
 </body>
 </html>

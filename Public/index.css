@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+/***HEADING***/
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(90,90,90,0.7), rgba(30,50,50,1)), url(/images/kakkapissa.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img {
+    width: 100px;
+}
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a {
+    color: #8B95C9;
+    text-decoration: none;
+    font-size: 20px;
+}
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+.text-box {
+    width: 60%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.text-box h1 {
+    font-size: 62px;
+}
+.text-box p {
+    margin: 10px 0 40px;
+    font-size: 20px;
+    color: white;
+    line-height: 22px;
+}
+.app-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid;
+    border-color: white;
+    padding: 12px 34px;
+    font-size: 20px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.app-btn:hover {
+    border: 1px solid;
+    border-color: #8B95C9;
+    background-color: #8B95C9;
+    transition: 1s;
+}
+/***MENU***/
+nav .close {
+    display: none;
+}
+nav .menu {
+    display: none;
+}
+/***ABOUT***/
+.about {
+    background-color: wheat;
+}
+.ab {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+p {
+    font-size: 20px;
+    line-height: 22px;
+    padding: 10px;
+}
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1100px;
+}
+.container .card {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 15px;
+    overflow: hidden;
+}
+.container .card .imgBx, 
+.container .card .contentBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.container .card .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.container .card .contentBx::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8B95C9;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+    transition-delay: 0,5s;
+    border-radius: 10px;
+}
+.container .card:hover .contentBx::before {
+    transform: scaleX(1);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: left;
+    transition-delay: 0s;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.container .card .contentBx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .card .contentBx .content {
+    position: relative;
+    padding: 30px;
+    z-index: 1;
+    transition: 0.5s;
+    transform: translateX(-320px);
+    transition-delay: 0,5s;
+}
+.container .card:hover .contentBx .content {
+    transform: translateX(0px);
+    transition-delay: 0,5s;
+}
+.container .card .contentBx .content h3 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.container .card .contentBx .content p {
+    font-size: 20px;
+}
+
+/***MEDIA***/
+@media(max-width: 700px) {
+    .text-box h1 {
+        font-size: 40px;
+    }
+    .nav-links ul li {
+        display: block;
+    }
+    .nav-links {
+        position: absolute;
+        background: #8B95C9;
+        height: 100vh;
+        width: 150px;
+        top: 0;
+        right: -150px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    .nav-links ul li a {
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    nav .close {
+        display: block;
+        margin-top: 35px;
+        margin-left: 10px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
+    nav .menu {
+        display: block;
+        margin: 10px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
+    nav img {
+        width: 80px;
+    }
+}
