@@ -120,5 +120,52 @@
         navLinks.style.right = "-150px";
     }
 </script>
+
+<!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->
+<script src="/socket.io/socket.io.js"></script>
+
+<script> 
+
+    const ws  = io();
+
+    // websocket kanavat mitä kuunnellaan
+    const parkingLotStatus = 'parkingLotStatus';
+    const updatedParkingSpot = 'updatedParkingSpot';
+
+    // tää tapahtuu aina kun sivu päivitetään
+    ws.on(parkingLotStatus, (message) => {
+        console.log('kaikki parkkipaikat: ', message);
+        /*message: [
+                        {
+                            "name": "Spot1",
+                            "fields": {
+                            "state": false,
+                            "inva": false
+                            }
+                        },
+                        {
+                            "name": "Spot2",
+                            "fields": {
+                            "state": true,
+                            "inva": false
+                            }
+                        },
+                        {
+                            "name": "Spot3",
+                            "fields": {
+                            "inva": true,
+                            "state": true
+                            }
+                        }
+                    ]
+        */
+    });
+
+    // tää tapahtuu aina kun auto tulee tai lähtee parkkipaikalta
+    ws.on(updatedParkingSpot, (message) => {
+        console.log('päivitetty parkkipaikka: ', message);
+        //   message = { name: "Spot1", fields: { inva: false, state: false } }
+    })
+</script>
 </body>
 </html>

@@ -3,6 +3,8 @@ import express from 'express';
 import path from 'path';
 import { startFirebase } from './Controllers/firebaseController';
 import { parkingLotStatus, startObservingParkingLot } from './Controllers/parkingLotController';
+import { startWs } from './Controllers/webSocketController';
+import { addParkingLots } from './Models/parkingLotModel';
 import webRoute from './Routes/webRoute';
 
 const port = 3000;
@@ -16,10 +18,17 @@ const port = 3000;
 
     if (connected) {
         startObservingParkingLot();
+
         app.use('/', webRoute);
-        app.listen(port, () => {
-            console.log('listening port: ', 3000)
-        })
+
+        const server = require('http').createServer(app);
+        server.listen(port, () => {
+            console.log(`Server listening port ${port}`);
+        });
+
+        // websocket
+        startWs(server);
+
 
     }
 
