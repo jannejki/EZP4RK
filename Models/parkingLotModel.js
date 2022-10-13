@@ -1,3 +1,5 @@
+'use strict';
+
 import { firebase } from "../Controllers/firebaseController";
 import { updateParkingSpot } from "../Controllers/webSocketController";
 

@@ -1,3 +1,4 @@
+import { IosApp } from 'firebase-admin/lib/project-management/ios-app';
 import { Server } from 'socket.io';
 import { parkingLotStatus } from './parkingLotController';
 
@@ -8,16 +9,16 @@ const startWs = (server) => {
 
 
     _io.on('connection', async (socket) => {
-        console.log('new client');
-        sendParkingLotStatus();
+        console.log('new client: ', socket.id);
+        sendParkingLotStatus(socket.id);
         socket.on('disconnect', () => { });
     });
 }
 
 
-const sendParkingLotStatus = async () => {
+const sendParkingLotStatus = async (socket) => {
     const parkingLot = await parkingLotStatus();
-    _io.emit('parkingLotStatus', parkingLot);
+    _io.to(socket).emit('parkingLotStatus', parkingLot);
 }
 
 
