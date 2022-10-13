@@ -3,6 +3,10 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 /***HEADING***/
 .header {
     min-height: 100vh;
@@ -157,7 +161,7 @@ p {
     height: 100%;
     background-color: #8B95C9;
     transform: scaleX(0);
-    transition: transform 0.7s ease-in-out;
+    transition: transform 0.6s ease-in-out;
     transform-origin: left;
     transition-delay: 0,5s;
     border-radius: 10px;
@@ -193,7 +197,7 @@ p {
     font-size: 20px;
 }
 
-/***MEDIA***/
+/***MEDIA***disaploin sivuttais liike puhelinkoossa*/
 @media(max-width: 700px) {
     .text-box h1 {
         font-size: 40px;
