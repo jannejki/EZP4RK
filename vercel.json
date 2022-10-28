@@ -1,0 +1,10 @@
+{
+    "version": 1,
+    "name": "ezp4rk",
+    "builds": [
+       { "src": "start.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+       { "src": "/(.*)", "dest": "/app.js" }
+    ]
+ }
