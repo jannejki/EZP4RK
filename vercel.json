@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "name": "ezp4rk",
     "builds": [
        { "src": "start.js", "use": "@vercel/node" }
