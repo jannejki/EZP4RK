@@ -1,9 +1,10 @@
 'use strict';
 import express from 'express';
-import { index } from '../Controllers/webController';
+import { history, index } from '../Controllers/webController';
 
 const router = express.Router();
 
 router.get('/', index);
+router.get('/testi', history);
 
 export default router;
