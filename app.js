@@ -1,22 +1,29 @@
 'use strict';
+// web related
 import express from 'express';
+import webRoute from './Routes/webRoute';
+import apiRoute from './Routes/apiRoute';
+
+// file managing
 import path from 'path';
-import { startFirebase } from './Controllers/firebaseController';
-import { parkingLotStatus, startObservingParkingLot } from './Controllers/parkingLotController';
-import https from 'https';
-import http from 'http';
 import fs from 'fs';
 
+// firebase
+import { startFirebase } from './Controllers/firebaseController';
+import { startObservingParkingLot } from './Controllers/parkingLotController';
+
 import { startWs } from './Controllers/webSocketController';
-import { addParkingLots } from './Models/parkingLotModel';
-import webRoute from './Routes/webRoute';
+
+// Server
+import https from 'https';
+import http from 'http';
+import helmet from "helmet";
 
 const httpPort = 3000;
 const httpsPort = 8000;
 
 const sslkey = fs.readFileSync('Keys/ssl-key.pem');
 const sslcert = fs.readFileSync('Keys/ssl-cert.pem');
-
 
 const options = {
     key: sslkey,
@@ -45,10 +52,10 @@ const options = {
             res.end();
         }).listen(httpPort);
 
+
         app.use('/', webRoute);
-
-
-
+        app.use('/api', apiRoute);
+        app.use(helmet());
     }
 
 })();
