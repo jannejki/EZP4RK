@@ -105,3 +105,6 @@ dist
 package-lock.json
 Keys/ezp4rk-c11a9-5390742f3d02.json
 Keys/ezp4rk-90eb3-5b0abd196841.json
+Keys/certrequest.csr
+Keys/ssl-cert.pem
+Keys/ssl-key.pem

@@ -1,11 +1,11 @@
-import { IosApp } from 'firebase-admin/lib/project-management/ios-app';
-import { Server } from 'socket.io';
 import { parkingLotStatus } from './parkingLotController';
 
 let _io;
 
 const startWs = (server) => {
-    _io = new Server(server);
+
+    const options = { /* ... */ };
+    _io = require("socket.io")(server, options);
 
 
     _io.on('connection', async (socket) => {
