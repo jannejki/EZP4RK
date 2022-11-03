@@ -63,6 +63,7 @@ nav img {
 }
 .text-box h1 {
     font-size: 62px;
+    margin-bottom: 30px;
 }
 .text-box p {
     margin: 10px 0 40px;
@@ -70,7 +71,8 @@ nav img {
     color: white;
     line-height: 22px;
 }
-.app-btn {
+
+/*.app-btn {
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -87,7 +89,7 @@ nav img {
     border-color: #8B95C9;
     background-color: #8B95C9;
     transition: 1s;
-}
+}*/
 /***MENU***/
 nav .close {
     display: none;
@@ -238,5 +240,9 @@ p {
     }
     nav img {
         width: 80px;
+    }
+    .parking {
+        height: 240px;
+        width: 240px;
     }
 }
