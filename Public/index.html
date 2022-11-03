@@ -121,7 +121,7 @@
 </script>
 
 <!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->
-<script src="/socket.io/socket.io.js"></script>
+<script src="http://152.70.178.116:3000/socket.io/socket.io.js"></script>
 
 <script> 
 
@@ -134,6 +134,15 @@
     // tää tapahtuu aina kun sivu päivitetään
     ws.on(parkingLotStatus, (message) => {
         console.log('kaikki parkkipaikat: ', message);
+        for(let n of message) {
+            const path = document.getElementById(n.name);
+            if (n.state) {
+                path.setAttribute("fill", "green");
+            }
+            else {
+                path.setAttribute("fill", "red");
+            }
+        }
         /*message: [
                         {
                             "name": "Spot1",
