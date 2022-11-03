@@ -158,9 +158,8 @@ function aboutdiv() {
             }
 </script>
 
-<!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-
-<script src="http://152.70.178.116:3000/socket.io/socket.io.js"></script>-->
-<script src="/socket.io/socket.io.js"></script>
+<!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->
+<script src="http://152.70.178.116:3000/socket.io/socket.io.js"></script>-
 
 <script> 
 
@@ -184,13 +183,12 @@ function aboutdiv() {
                     path.setAttribute("fill", "#26A96C");
                 }
 
-                
                 if(spot.fields.inva == true) {
-                    path.setAttribute("fill", "#0892d0");
+                    path.setAttribute("fill", "#ff3232");
                 }
 
                 if(spot.fields.state == false) {
-                    path.setAttribute("fill", "#8B95C9");
+                    path.setAttribute("fill", "red");
                 }
             }
     }
