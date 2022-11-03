@@ -42,7 +42,7 @@ const options = {
         startObservingParkingLot();
 
         //starting https server
-        const server = https.createServer(app);
+        const server = http.createServer(app);
         startWs(server);
         server.listen(httpPort);
 
