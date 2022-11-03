@@ -180,8 +180,8 @@ function aboutdiv() {
             const path = document.getElementById(spot.name);
             if(spot.fields.state && !spot.fields.inva) {
                 path.setAttribute("fill", "#26A96C");
-            } else if(spots.fields.state && spots.fields.inva) {
-                path.setAttribute("fill", "blue");
+            } else if(spots.fields.inva) {
+                path.setAttribute("fill", "#0892d0");
             } else {
                 path.setAttribute("fill", "#8B95C9");
             }
