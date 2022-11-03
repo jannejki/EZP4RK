@@ -19,7 +19,7 @@ import https from 'https';
 import http from 'http';
 import helmet from "helmet";
 
-const httpPort = 3000;
+const port = 3000;
 const httpsPort = 8000;
 
 const sslkey = fs.readFileSync('Keys/ssl-key.pem');
@@ -41,16 +41,13 @@ const options = {
     if (connected) {
         startObservingParkingLot();
 
-        //starting https server
-        const server = http.createServer(app);
-        startWs(server);
-        server.listen(httpPort);
+        const server = require('http').createServer(app);
+        server.listen(port, () => {
+            console.log(`Server listening port ${port}`);
+        });
 
-        // starting http server to redirect users to https
-        http.createServer(options, (req, res) => {
-            res.writeHead(301, { 'Location': `https://152.70.178.116:8000${req.url}` });
-            res.end();
-        }).listen(httpsPort);
+        // websocket
+        startWs(server);
 
 
         app.use('/', webRoute);
