@@ -19,20 +19,50 @@
             <div class="nav-links" id="navLinks">
                 <img class="close" onclick="hideMenu()" src="./images/close.png" alt="close">
                 <ul>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">ABOUT</a></li>
-                    <li><a href="">CONTACT</a></li>
+                    <li><button onclick="homediv()">HOME</button></li>
+                    <li><button onclick="aboutdiv()">ABOUT</button></li>
+                    <li><button onclick="contactdiv()">CONTACT</button></li>       
                 </ul>
             </div>
             <img class="menu" onclick="showMenu()" src="./images/menu.png" alt="menu">
         </nav>
         <div class="text-box">
             <h1>EZ-P4RK</h1>
-            <img class="parking" src="./images/parkinglotSVG.svg" alt="alt">
+            <div class="parkingspots">
+                <svg class="parking"><g transform="translate(0.000000,295.000000) scale(0.100000,-0.100000)"
+                    fill="#ffffff" stroke="none">
+                    <path id="spot1" d="M0 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot2" d="M580 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot3" d="M1160 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot4" d="M1740 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot5" d="M2320 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot6" d="M2900 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot7" d="M3480 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot8" d="M4060 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot9" d="M4640 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot10" d="M5220 2505 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot11" d="M320 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot12" d="M900 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot13" d="M1480 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot14" d="M2060 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot15" d="M2640 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot16" d="M3220 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot17" d="M3800 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot18" d="M4380 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot19" d="M4960 1475 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot20" d="M900 455 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot21" d="M1480 455 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot22" d="M2060 455 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot23" d="M2640 455 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot24" d="M3220 455 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot25" d="M3800 445 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    <path id="spot26" d="M4380 445 l0 -445 265 0 265 0 0 445 0 445 -265 0 -265 0 0 -445z"/>
+                    </g></svg>
+            </div>
         </div>
     </section>
 <!--------ABOUT-------->
-    <section class="about">
+    <section id="aboutdiv" class="about">
         <div class="ab">
             <h1>Project Pictures</h1>
             <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus eaque, quae facilis eveniet, magni aliquid possimus neque fugiat ipsum sequi ducimus assumenda perferendis fuga officia ipsa id quod voluptate sit nesciunt ratione perspiciatis esse adipisci doloremque nemo. Architecto ipsa eligendi, beatae totam velit minima repellat repellendus ad perspiciatis quos odio.</p>
@@ -108,6 +138,7 @@
             </div>
         </div>
     </section>
+    <!---FOOTER-->
 
 <!--------SCRIPT-------->
 <script>
@@ -118,6 +149,12 @@
     function hideMenu() {
         navLinks.style.right = "-150px";
     }
+
+//smoothscroll
+function aboutdiv() {
+                var elem = document.getElementById("aboutdiv");
+                elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
+            }
 </script>
 
 <!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->

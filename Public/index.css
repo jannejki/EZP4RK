@@ -35,10 +35,13 @@ nav img {
     padding: 8px 12px;
     position: relative;
 }
-.nav-links ul li a {
+.nav-links ul li button {
     color: #8B95C9;
     text-decoration: none;
     font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 .nav-links ul li::after {
     content: '';
@@ -53,25 +56,23 @@ nav img {
     width: 100%;
 }
 .text-box {
-    width: 60%;
+    width: 100%;
     color: white;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 .text-box h1 {
     font-size: 62px;
-    margin-bottom: 30px;
+    margin-bottom: -100px;
 }
-.text-box p {
-    margin: 10px 0 40px;
-    font-size: 20px;
-    color: white;
-    line-height: 22px;
+.parking {
+    height: 600px;
+    width: 600px;
+    transform: scale(0.6);
 }
-
 /*.app-btn {
     display: inline-block;
     text-decoration: none;
@@ -198,11 +199,13 @@ p {
 .container .card .contentBx .content p {
     font-size: 20px;
 }
+/***FOOTER***/
 
 /***MEDIA***disaploin sivuttais liike puhelinkoossa*/
 @media(max-width: 700px) {
     .text-box h1 {
         font-size: 40px;
+        margin-bottom: -120px;
     }
     .nav-links ul li {
         display: block;
@@ -241,8 +244,13 @@ p {
     nav img {
         width: 80px;
     }
-    .parking {
-        height: 240px;
-        width: 240px;
+    .parkingspots {
+        position: relative;
+        left: -18%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        transform: scale(0.8);
     }
+    
 }
