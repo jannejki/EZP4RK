@@ -134,7 +134,15 @@
     // tää tapahtuu aina kun sivu päivitetään
     ws.on(parkingLotStatus, (message) => {
         console.log('kaikki parkkipaikat: ', message);
-
+        for(let n of message) {
+            const path = document.getElementById(n.name);
+            if (n.state) {
+                path.setAttribute("fill", "green");
+            }
+            else {
+                path.setAttribute("fill", "red");
+            }
+        }
         /*message: [
                         {
                             "name": "Spot1",
