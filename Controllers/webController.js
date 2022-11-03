@@ -7,5 +7,8 @@ const index = async (req, res) => {
     res.sendFile(path.join(__dirname, '../Public/index.html'));
 }
 
+const history = async (req, res) => {
+    res.send('toimii');
+}
 
-export { index }
+export { index, history }

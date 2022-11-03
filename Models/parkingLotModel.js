@@ -1,5 +1,8 @@
+'use strict';
+
 import { firebase } from "../Controllers/firebaseController";
 import { updateParkingSpot } from "../Controllers/webSocketController";
+import { addHistory } from "./parkingSpotModel";
 
 
 const observeParkingLot = async () => {
@@ -9,7 +12,9 @@ const observeParkingLot = async () => {
             querySnapshot.docChanges().forEach(change => {
                 if (change.type === 'modified') {
                     console.log('Modified parkingSpot: ', change.doc.id, ', data: ', change.doc.data());
+
                     updateParkingSpot({ name: change.doc.id, fields: change.doc.data() });
+                    addHistory({ name: change.doc.id, state: change.doc.data().state });
                 }
             });
         });
@@ -35,8 +40,9 @@ const getParkingLotStatus = async () => {
 }
 
 
+// For configuring new database
 const addParkingLots = async () => {
-    const parkingLotRef = firebase.collection('ParkingLot');
+    const parkingLotRef = firebase.collection('History');
 
     for (let i = 1; i < 27; i++) {
         await parkingLotRef.doc(`Spot${i}`).set({

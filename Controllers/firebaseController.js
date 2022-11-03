@@ -2,7 +2,7 @@ import { initializeApp, applicationDefault, cert } from 'firebase-admin/lib/app'
 import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/lib/firestore';
 
 
-const serviceAccount = require('../Keys/ezp4rk-c11a9-5390742f3d02.json');
+const serviceAccount = require('../Keys/ezp4rk-90eb3-5b0abd196841.json');
 let firebase;
 
 const startFirebase = async () => {

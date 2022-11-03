@@ -1,23 +1,24 @@
-import { Server } from 'socket.io';
 import { parkingLotStatus } from './parkingLotController';
 
 let _io;
 
 const startWs = (server) => {
-    _io = new Server(server);
+
+    const options = { /* ... */ };
+    _io = require("socket.io")(server, options);
 
 
     _io.on('connection', async (socket) => {
-        console.log('new client');
-        sendParkingLotStatus();
+        console.log('new client: ', socket.id);
+        sendParkingLotStatus(socket.id);
         socket.on('disconnect', () => { });
     });
 }
 
 
-const sendParkingLotStatus = async () => {
+const sendParkingLotStatus = async (socket) => {
     const parkingLot = await parkingLotStatus();
-    _io.emit('parkingLotStatus', parkingLot);
+    _io.to(socket).emit('parkingLotStatus', parkingLot);
 }
 
 
