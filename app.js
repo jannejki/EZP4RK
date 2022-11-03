@@ -42,15 +42,15 @@ const options = {
         startObservingParkingLot();
 
         //starting https server
-        const server = https.createServer(options, app);
+        const server = https.createServer(app);
         startWs(server);
-        server.listen(httpsPort);
+        server.listen(httpPort);
 
         // starting http server to redirect users to https
         http.createServer(options, (req, res) => {
-            res.writeHead(301, { 'Location': `https://localhost:8000${req.url}` });
+            res.writeHead(301, { 'Location': `https://152.70.178.116:8000${req.url}` });
             res.end();
-        }).listen(httpPort);
+        }).listen(httpsPort);
 
 
         app.use('/', webRoute);
