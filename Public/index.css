@@ -80,24 +80,6 @@ nav img {
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
 }
-/*.app-btn {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    border: 1px solid;
-    border-color: white;
-    padding: 12px 34px;
-    font-size: 20px;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-}
-.app-btn:hover {
-    border: 1px solid;
-    border-color: #8B95C9;
-    background-color: #8B95C9;
-    transition: 1s;
-}*/
 /***MENU***/
 nav .close {
     display: none;
