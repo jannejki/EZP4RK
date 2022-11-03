@@ -178,11 +178,12 @@ function aboutdiv() {
     const changeColors = (spots) => {
         for(let spot of spots) {
             const path = document.getElementById(spot.name);
-            if(spot.fields.state) {
-                path.setAttribute("fill", "green");
+            if(spot.fields.state && !spot.fields.inva) {
+                path.setAttribute("fill", "#26A96C");
+            } else if(spots.fields.state && spots.fields.inva) {
+                path.setAttribute("fill", "blue");
             } else {
-                path.setAttribute("fill", "red");
-                
+                path.setAttribute("fill", "#8B95C9");
             }
         }
     }
