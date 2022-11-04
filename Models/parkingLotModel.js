@@ -4,6 +4,7 @@ import { firebase } from "../Controllers/firebaseController";
 import { updateParkingSpot } from "../Controllers/webSocketController";
 import { addHistory } from "./parkingSpotModel";
 
+const parkingLot = [];
 
 const observeParkingLot = async () => {
     const observer = firebase.collection('ParkingLot')
@@ -13,8 +14,18 @@ const observeParkingLot = async () => {
                 if (change.type === 'modified') {
                     console.log('Modified parkingSpot: ', change.doc.id, ', data: ', change.doc.data());
 
-                    updateParkingSpot({ name: change.doc.id, fields: change.doc.data() });
-                    addHistory({ name: change.doc.id, state: change.doc.data().state });
+                    for (let i in parkingLot) {
+
+                        if (parkingLot[i].name == change.doc.id) {
+
+                            parkingLot[i] = { name: change.doc.id, fields: change.doc.data() }
+                            updateParkingSpot({ name: change.doc.id, fields: change.doc.data() });
+                            addHistory({ name: change.doc.id, state: change.doc.data().state });
+
+                            break;
+                        }
+                    }
+
                 }
             });
         });
@@ -22,21 +33,24 @@ const observeParkingLot = async () => {
 }
 
 
-const getParkingLotStatus = async () => {
+const getParkingLotStatusFromFB = async () => {
     const parkingLotRef = firebase.collection('ParkingLot');
     try {
 
         const snapshot = await parkingLotRef.get();
 
-        const parkingLotArray = [];
-
         snapshot.forEach(doc => {
-            parkingLotArray.push({ name: doc.id, fields: doc.data() })
+            parkingLot.push({ name: doc.id, fields: doc.data() })
         });
-        return parkingLotArray;
+        return true;
     } catch (e) {
         throw { error: `Encountered error: ${e}`, status: 500 };
     }
+}
+
+
+const getParkingLotStatus = () => {
+    return parkingLot;
 }
 
 
@@ -56,6 +70,7 @@ const addParkingLots = async () => {
 
 export {
     observeParkingLot,
-    getParkingLotStatus,
-    addParkingLots
+    getParkingLotStatusFromFB,
+    addParkingLots,
+    getParkingLotStatus
 }

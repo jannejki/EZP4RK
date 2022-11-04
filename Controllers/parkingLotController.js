@@ -1,18 +1,19 @@
-import { getParkingLotStatus, observeParkingLot } from "../Models/parkingLotModel";
+import { getParkingLotStatus, getParkingLotStatusFromFB, observeParkingLot } from "../Models/parkingLotModel";
 
 
-const startObservingParkingLot = () => {
-    observeParkingLot();
+const startObservingParkingLot = async () => {
+    try {
+
+        observeParkingLot();
+        const success = await getParkingLotStatusFromFB();
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 const parkingLotStatus = async () => {
-    try {
-        const parkingLot = await getParkingLotStatus();
-        return parkingLot;
-    } catch (err) {
-        console.log(err);
-    }
-
+    const parkingLot = getParkingLotStatus();
+    return parkingLot;
 }
 
 

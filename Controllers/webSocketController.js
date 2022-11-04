@@ -3,12 +3,25 @@ import { parkingLotStatus } from './parkingLotController';
 
 let _io;
 
-const startWs = (server) => {
+const startHttpWs = (server) => {
     _io = new Server(server);
 
 
     _io.on('connection', async (socket) => {
-        console.log('new client');
+        console.log('new client: ', socket.id);
+        sendParkingLotStatus();
+        socket.on('disconnect', () => { });
+    });
+}
+
+
+const startHttpsWs = (server) => {
+    const options = { /* ... */ };
+    _io = require("socket.io")(server, options);
+
+
+    _io.on('connection', async (socket) => {
+        console.log('new client: ', socket.id);
         sendParkingLotStatus();
         socket.on('disconnect', () => { });
     });
@@ -26,4 +39,4 @@ const updateParkingSpot = (parkingSpot) => {
 }
 
 
-export { startWs, sendParkingLotStatus, updateParkingSpot };
+export { startHttpWs, startHttpsWs, sendParkingLotStatus, updateParkingSpot };

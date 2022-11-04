@@ -159,7 +159,8 @@ function aboutdiv() {
 </script>
 
 <!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->
-<script src="http://152.70.178.116:3000/socket.io/socket.io.js"></script>-
+<!--<script src="http://152.70.178.116:3000/socket.io/socket.io.js"></script>-->
+<script src="/socket.io/socket.io.js"></script>-->
 
 <script> 
 
@@ -179,16 +180,12 @@ function aboutdiv() {
         for(let spot of spots) {
             const path = document.getElementById(spot.name);
  
-                if(spot.fields.state == true) {
+                if(spot.fields.state && !spot.fields.inva) {
                     path.setAttribute("fill", "#26A96C");
-                }
-
-                
-                if(spot.fields.inva == true) {
+                } else if(spot.fields.inva && spot.fields.inva) {
                     path.setAttribute("fill", "#0892d0");
                 }
-
-                if(spot.fields.state == false) {
+                if(!spot.fields.state) {
                     path.setAttribute("fill", "#ff3232");
                 }
             }

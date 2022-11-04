@@ -12,14 +12,16 @@ import fs from 'fs';
 import { startFirebase } from './Controllers/firebaseController';
 import { startObservingParkingLot } from './Controllers/parkingLotController';
 
-import { startWs } from './Controllers/webSocketController';
+import { startHttpWs, startHttpsWs } from './Controllers/webSocketController';
 
 // Server
 import https from 'https';
 import http from 'http';
 import helmet from "helmet";
+import dotenv from 'dotenv';
 
-const port = 3000;
+dotenv.config();
+const httpPort = 3000;
 const httpsPort = 8000;
 
 const sslkey = fs.readFileSync('Keys/ssl-key.pem');
@@ -40,14 +42,42 @@ const options = {
 
     if (connected) {
         startObservingParkingLot();
+        let server;
 
-        const server = require('http').createServer(app);
-        server.listen(port, () => {
-            console.log(`Server listening port ${port}`);
-        });
+        switch (process.env.NODE_ENV) {
+            case 'DEVELOPMENT':
 
-        // websocket
-        startWs(server);
+                console.log('dev');
+                server = require('http').createServer(app);
+
+                server.listen(httpPort, () => {
+                    console.log(`Server listening port ${httpPort}`);
+                });
+
+                startHttpWs(server);
+                break;
+
+            case 'PRODUCTION':
+                console.log('prod');
+
+                //starting https server
+                server = https.createServer(options, app);
+                startHttpsWs(server);
+
+                server.listen(httpsPort, () => {
+                    console.log(`HTTPS Server listening port ${httpsPort}`);
+                });
+
+                http.createServer(options, (req, res) => {
+                    res.writeHead(301, { 'Location': `https://localhost:8000` });
+                    res.end();
+
+                }).listen(httpPort, () => {
+                    console.log(`HTTP Server listening port ${httpPort}`);
+                });
+
+                break;
+        }
 
 
         app.use('/', webRoute);
