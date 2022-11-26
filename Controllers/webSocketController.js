@@ -6,7 +6,6 @@ let _io;
 const startHttpWs = (server) => {
     _io = new Server(server);
 
-
     _io.on('connection', async (socket) => {
         console.log('new client: ', socket.id);
         sendParkingLotStatus();

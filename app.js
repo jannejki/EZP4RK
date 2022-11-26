@@ -64,16 +64,16 @@ const options = {
                 server = https.createServer(options, app);
                 startHttpsWs(server);
 
-                server.listen(httpsPort, () => {
-                    console.log(`HTTPS Server listening port ${httpsPort}`);
+                server.listen(httpPort, () => {
+                    console.log(`HTTPS Server listening port ${httpPort}`);
                 });
 
                 http.createServer(options, (req, res) => {
-                    res.writeHead(301, { 'Location': `https://localhost:8000` });
+                    res.writeHead(301, { 'Location': `https://localhost:8080` });
                     res.end();
 
-                }).listen(httpPort, () => {
-                    console.log(`HTTP Server listening port ${httpPort}`);
+                }).listen(httpsPort, () => {
+                    console.log(`HTTP Server listening port ${httpsPort}`);
                 });
 
                 break;
