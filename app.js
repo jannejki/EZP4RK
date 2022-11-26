@@ -21,7 +21,7 @@ import helmet from "helmet";
 import dotenv from 'dotenv';
 
 dotenv.config();
-const httpPort = 3000;
+const httpPort = 8080;
 const httpsPort = 8000;
 
 const sslkey = fs.readFileSync('Keys/ssl-key.pem');

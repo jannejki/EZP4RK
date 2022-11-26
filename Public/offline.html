@@ -37,6 +37,7 @@
             <img class="menu" onclick="showMenu()" src="./images/menu.png" alt="menu">
         </nav>
         <div class="text-box">
+            <h2 style="color:rgb(255, 83, 83);">System is offline</h2>
             <h1>EZ-P4RK</h1>
             <div class="parkingspots">
                 <svg class="parking"><g transform="translate(0.000000,294.000000) scale(0.100000,-0.100000)"
@@ -168,49 +169,6 @@ function aboutdiv() {
             }
 </script>
 
-<!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->
-<script src="http://152.70.178.116:8080/socket.io/socket.io.js"></script>
-<!--script src="/socket.io/socket.io.js"></script>-->
-<script> 
-
-try {
-
-    const ws  = io();
-    
-    // websocket kanavat mitä kuunnellaan
-    const parkingLotStatus = 'parkingLotStatus';
-    const updatedParkingSpot = 'updatedParkingSpot';
-
-    // tää tapahtuu aina kun sivu päivitetään
-    ws.on(parkingLotStatus, (message) => {
-        console.log('kaikki parkkipaikat: ', message);
-        changeColors(message);
-    });
-
-    const changeColors = (spots) => {
-        for(let spot of spots) {
-            const path = document.getElementById(spot.name);
- 
-                if(spot.fields.state && !spot.fields.inva) {
-                    path.setAttribute("fill", "#26A96C");
-                } else if(spot.fields.inva && spot.fields.inva) {
-                    path.setAttribute("fill", "#0892d0");
-                }
-                if(!spot.fields.state) {
-                    path.setAttribute("fill", "#ff3232");
-                }
-            }
-    }
-    // tää tapahtuu aina kun auto tulee tai lähtee parkkipaikalta
-    ws.on(updatedParkingSpot, (message) => {
-        console.log('päivitetty parkkipaikka: ', message);
-        changeColors([message]);
-    })
-} catch(err) {
-    console.warn("Ei nettiä");
-}
-
-</script>
 <script src="js/main.js"></script>
 </body>
 </html>
