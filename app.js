@@ -22,8 +22,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const sslkey = fs.readFileSync('Keys/ssl-key.pem');
-const sslcert = fs.readFileSync('Keys/ssl-cert.pem');
+const sslkey = fs.readFileSync('Keys/private.key');
+const sslcert = fs.readFileSync('Keys/certificate.crt');
 
 const options = {
     key: sslkey,
@@ -50,8 +50,8 @@ const options = {
                 console.log('dev');
                 server = require('http').createServer(app);
 
-                server.listen(httpsPort, () => {
-                    console.log(`Server listening port ${httpsPort}`);
+                server.listen(httpPort, () => {
+                    console.log(`Server listening port ${httpPort}`);
                 });
 
                 startHttpWs(server);
@@ -69,7 +69,7 @@ const options = {
                 });
 
                 http.createServer(options, (req, res) => {
-                    res.writeHead(301, { 'Location': `https://152.70.178.116:${httpsPort}` });
+                    res.writeHead(301, { 'Location': `https://ezp4rk.ddns.net:{httpsPort}` });
                     res.end();
 
                 }).listen(httpPort, () => {
