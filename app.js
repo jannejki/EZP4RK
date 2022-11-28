@@ -69,7 +69,11 @@ const options = {
                 });
 
                 http.createServer(options, (req, res) => {
+<<<<<<< HEAD
                     res.writeHead(301, { 'Location': `https://ezp4rk.ddns.net:{httpsPort}` });
+=======
+                    res.writeHead(301, { 'Location': `https://152.70.178.116:${httpsPort}` });
+>>>>>>> 56f01b179fe6394e77d4eb13989a4a078e1b9cbb
                     res.end();
 
                 }).listen(httpPort, () => {
