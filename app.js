@@ -21,8 +21,6 @@ import helmet from "helmet";
 import dotenv from 'dotenv';
 
 dotenv.config();
-const httpPort = 8000;
-const httpsPort = 8080;
 
 const sslkey = fs.readFileSync('Keys/ssl-key.pem');
 const sslcert = fs.readFileSync('Keys/ssl-cert.pem');
@@ -34,6 +32,8 @@ const options = {
 };
 
 (async () => {
+    const httpPort = process.env.HTTP_PORT;
+    const httpsPort = process.env.HTTPS_PORT;
     // express app
     const app = express();
     app.use(express.static(path.join(__dirname, 'Public')));
@@ -69,7 +69,7 @@ const options = {
                 });
 
                 http.createServer(options, (req, res) => {
-                    res.writeHead(301, { 'Location': `https://localhost:8080` });
+                    res.writeHead(301, { 'Location': `https://152.70.178.116:${httpsPort}` });
                     res.end();
 
                 }).listen(httpPort, () => {
