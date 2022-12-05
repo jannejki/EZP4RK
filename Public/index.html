@@ -21,7 +21,7 @@
                 <ul>
                     <li><button onclick="homediv()">HOME</button></li>
                     <li><button onclick="aboutdiv()">ABOUT</button></li>
-                    <li><button onclick="contactdiv()">CONTACT</button></li>       
+                    <li><button onclick="botdiv()">CONTACT</button></li>       
                 </ul>
             </div>
             <img class="menu" onclick="showMenu()" src="./images/menu.png" alt="menu">
@@ -66,7 +66,7 @@
     <section id="aboutdiv" class="about">
         <div class="ab">
             <h1>Project Pictures</h1>
-            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus eaque, quae facilis eveniet, magni aliquid possimus neque fugiat ipsum sequi ducimus assumenda perferendis fuga officia ipsa id quod voluptate sit nesciunt ratione perspiciatis esse adipisci doloremque nemo. Architecto ipsa eligendi, beatae totam velit minima repellat repellendus ad perspiciatis quos odio.</p>
+            <p> Here are few photos where you can see the progression of our project (hover on the images or if you are on the wesite with phone then click images).</p>
         </div>
         <div class="gallery">
             <div class="container">
@@ -76,8 +76,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Post One</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                            <h3>CAMERA TESTING</h3>
+                            <p>First glance of the parking lot with our camera!.</p>
                         </div>
                     </div>
                 </div>
@@ -87,8 +87,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Post Two</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                            <h3>FLOWCHART</h3>
+                            <p>Creating a draft of the flowchart w/the boijs.</p>
                         </div>
                     </div>
                 </div>
@@ -98,8 +98,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Post Three</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                            <h3>Raspberry Pi part 1</h3>
+                            <p>Getting camera image to Raspberry Pi's ubuntu.</p>
                         </div>
                     </div>
                 </div>
@@ -109,8 +109,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Post Four</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                            <h3>Raspberry Pi part 2</h3>
+                            <p>Fixed camera image and framerate problems.</p>
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Post Five</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                            <h3>location for camera</h3>
+                            <p>Looking for a good angel to the parking lot for the camera(and Joonas flexing with his climbing skills and superior balance).<p>
                         </div>
                     </div>
                 </div>
@@ -131,8 +131,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Post Six</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
+                            <h3>Security</h3>
+                            <p>creating tampering protection by threatening the person who moves our router.</p>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,10 @@
         </div>
     </section>
     <!---FOOTER-->
-
+    <section class="bot" id="botdiv">
+        <h1>If you have any questions</h1>
+        <a href="" class="btn">CONTACT US</a>
+    </section>
 <!--------SCRIPT-------->
 <script>
     var navLinks = document.getElementById("navLinks");
@@ -154,6 +157,11 @@
 //smoothscroll
 function aboutdiv() {
                 var elem = document.getElementById("aboutdiv");
+                elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
+            }
+
+function botdiv() {
+                var elem = document.getElementById("botdiv");
                 elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
             }
 </script>

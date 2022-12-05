@@ -6,12 +6,13 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    background-color: black;
 }
 /***HEADING***/
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(90,90,90,0.7), rgba(30,50,50,1)), url(./images/kakkapissa.png);
+    background-image: linear-gradient(rgba(90,90,90,0.4), rgba(0, 0, 0, 1)), url(./images/kakkapissa.png);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -36,7 +37,7 @@ nav img {
     position: relative;
 }
 .nav-links ul li button {
-    color: #8B95C9;
+    color:  #8B95C9;
     text-decoration: none;
     font-size: 20px;
     background: none;
@@ -67,6 +68,7 @@ nav img {
 .text-box h1 {
     font-size: 85px;
     margin-bottom: -100px;
+    color: #8B95C9;
 }
 .parking {
     height: 600px;
@@ -74,6 +76,7 @@ nav img {
     transform: scale(0.6);
 }
 .parkingspots {
+    text-align: center;
     position: relative;
         left: 51%;
         -webkit-transform: translateX(-50%);
@@ -90,6 +93,8 @@ nav .menu {
 /***ABOUT***/
 .about {
     background-color: wheat;
+    background-color: black;
+    color: white;
 }
 .ab {
     width: 80%;
@@ -189,7 +194,37 @@ p {
     font-size: 20px;
 }
 /***FOOTER***/
-
+.bot {
+    margin: 50px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(139, 149, 201, 0.8), rgba(0, 0, 0, 0.8)), url("./images/meds.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 50px 0;
+}
+.bot h1 {
+    color: white;
+    margin-bottom: 40px;
+    padding: 0;
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 20px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.btn:hover {
+    border: 1px solid #8B95C9;
+    background: #8B95C9;
+    transition: 1s;
+}
 /***MEDIA***disaploin sivuttais liike puhelinkoossa*/
 @media(max-width: 700px) {
     .text-box h1 {
@@ -234,15 +269,27 @@ p {
         height: 30px;
     }
     nav img {
-        width: 80px;
+        width: 60px;
+    }
+    .parking {
+        
     }
     .parkingspots {
-        position: relative;
-        left: -18%;
+        display: inline-block;
+        padding-top: 30px;
+        padding-left: 10px;
+        /**SVG KUVA LEIKKAANTUU MUTTA PYSYY KESKELLÄ***/
+        /*display: flex;
+        justify-content: center;*/
+        /*margin: auto;*/
+
+        /**KOKO KUVA PYSYY KESKELLÄ, MUTTA LEFT ATRIBUUTTI ON NÄYTTÖ KOHTAINEN**/
+        /*position: relative;
+        left: -19%;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
-        transform: scale(0.8);
+        transform: scale(0.8);*/
     }
     
 }
