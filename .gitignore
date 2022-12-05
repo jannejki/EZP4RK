@@ -108,3 +108,8 @@ Keys/ezp4rk-90eb3-5b0abd196841.json
 Keys/certrequest.csr
 Keys/ssl-cert.pem
 Keys/ssl-key.pem
+Keys/certificate.crt
+Keys/ca_bundle.crt
+Keys/private.key
+firebase.py
+kuva.jpg

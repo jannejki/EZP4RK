@@ -12,18 +12,18 @@ import fs from 'fs';
 import { startFirebase } from './Controllers/firebaseController';
 import { startObservingParkingLot } from './Controllers/parkingLotController';
 
-import { startWs } from './Controllers/webSocketController';
+import { startHttpWs, startHttpsWs } from './Controllers/webSocketController';
 
 // Server
 import https from 'https';
 import http from 'http';
 import helmet from "helmet";
+import dotenv from 'dotenv';
 
-const httpPort = 3000;
-const httpsPort = 8000;
+dotenv.config();
 
-const sslkey = fs.readFileSync('Keys/ssl-key.pem');
-const sslcert = fs.readFileSync('Keys/ssl-cert.pem');
+const sslkey = fs.readFileSync('Keys/private.key');
+const sslcert = fs.readFileSync('Keys/certificate.crt');
 
 const options = {
     key: sslkey,
@@ -32,6 +32,8 @@ const options = {
 };
 
 (async () => {
+    const httpPort = process.env.HTTP_PORT;
+    const httpsPort = process.env.HTTPS_PORT;
     // express app
     const app = express();
     app.use(express.static(path.join(__dirname, 'Public')));
@@ -40,17 +42,42 @@ const options = {
 
     if (connected) {
         startObservingParkingLot();
+        let server;
 
-        //starting https server
-        const server = http.createServer(app);
-        startWs(server);
-        server.listen(httpPort);
+        switch (process.env.NODE_ENV) {
+            case 'DEVELOPMENT':
 
-        // starting http server to redirect users to https
-        http.createServer(options, (req, res) => {
-            res.writeHead(301, { 'Location': `https://152.70.178.116:8000${req.url}` });
-            res.end();
-        }).listen(httpsPort);
+                console.log('dev');
+                server = require('http').createServer(app);
+
+                server.listen(httpPort, () => {
+                    console.log(`Server listening port ${httpPort}`);
+                });
+
+                startHttpWs(server);
+                break;
+
+            case 'PRODUCTION':
+                console.log('prod');
+
+                //starting https server
+                server = https.createServer(options, app);
+                startHttpsWs(server);
+
+                server.listen(httpsPort, () => {
+                    console.log(`HTTPS Server listening port ${httpsPort}`);
+                });
+
+                http.createServer(options, (req, res) => {
+                    res.writeHead(301, { 'Location': `https://ezp4rk.ddns.net:{httpsPort}`});
+                    res.end();
+
+                }).listen(httpPort, () => {
+                    console.log(`HTTP Server listening port ${httpPort}`);
+                });
+
+                break;
+        }
 
 
         app.use('/', webRoute);

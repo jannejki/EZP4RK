@@ -31,12 +31,13 @@
                 <ul>
                     <li><button onclick="homediv()">HOME</button></li>
                     <li><button onclick="aboutdiv()">ABOUT</button></li>
-                    <li><button onclick="botdiv()">CONTACT</button></li>       
+                    <li><button onclick="contactdiv()">CONTACT</button></li>       
                 </ul>
             </div>
             <img class="menu" onclick="showMenu()" src="./images/menu.png" alt="menu">
         </nav>
         <div class="text-box">
+            <h2 style="color:rgb(255, 83, 83);">System is offline</h2>
             <h1>EZ-P4RK</h1>
             <div class="parkingspots">
                 <svg class="parking"><g transform="translate(0.000000,294.000000) scale(0.100000,-0.100000)"
@@ -76,7 +77,7 @@
     <section id="aboutdiv" class="about">
         <div class="ab">
             <h1>Project Pictures</h1>
-            <p> Here are few photos where you can see the progression of our project (hover on the images or if you are on the wesite with phone then click images).</p>
+            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus eaque, quae facilis eveniet, magni aliquid possimus neque fugiat ipsum sequi ducimus assumenda perferendis fuga officia ipsa id quod voluptate sit nesciunt ratione perspiciatis esse adipisci doloremque nemo. Architecto ipsa eligendi, beatae totam velit minima repellat repellendus ad perspiciatis quos odio.</p>
         </div>
         <div class="gallery">
             <div class="container">
@@ -86,8 +87,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>CAMERA TESTING</h3>
-                            <p>First glance of the parking lot with our camera!.</p>
+                            <h3>Post One</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
                         </div>
                     </div>
                 </div>
@@ -97,8 +98,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>FLOWCHART</h3>
-                            <p>Creating a draft of the flowchart w/the boijs.</p>
+                            <h3>Post Two</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
                         </div>
                     </div>
                 </div>
@@ -108,8 +109,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Raspberry Pi part 1</h3>
-                            <p>Getting camera image to Raspberry Pi's ubuntu.</p>
+                            <h3>Post Three</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
                         </div>
                     </div>
                 </div>
@@ -119,8 +120,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Raspberry Pi part 2</h3>
-                            <p>Fixed camera image and framerate problems.</p>
+                            <h3>Post Four</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
                         </div>
                     </div>
                 </div>
@@ -130,8 +131,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>location for camera</h3>
-                            <p>Looking for a good angel to the parking lot for the camera(and Joonas flexing with his climbing skills and superior balance).<p>
+                            <h3>Post Five</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
                         </div>
                     </div>
                 </div>
@@ -141,8 +142,8 @@
                     </div>
                     <div class="contentBx">
                         <div class="content">
-                            <h3>Security</h3>
-                            <p>creating tampering protection by threatening the person who moves our router.</p>
+                            <h3>Post Six</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo repellendus laudantium atque animi sit eius laborum id suscipit tempora ex quod optio, eum numquam voluptatum quam ipsa minima maiores dolorem.</p>
                         </div>
                     </div>
                 </div>
@@ -150,10 +151,7 @@
         </div>
     </section>
     <!---FOOTER-->
-    <section class="bot" id="botdiv">
-        <h1>If you have any questions</h1>
-        <a href="" class="btn">CONTACT US</a>
-    </section>
+
 <!--------SCRIPT-------->
 <script>
     var navLinks = document.getElementById("navLinks");
@@ -169,56 +167,8 @@ function aboutdiv() {
                 var elem = document.getElementById("aboutdiv");
                 elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
             }
-
-function botdiv() {
-                var elem = document.getElementById("botdiv");
-                elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
-            }
 </script>
 
-<!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->
-<script src="https://ezp4rk.ddns.net/socket.io/socket.io.js"></script>
-<!--<script src="/socket.io/socket.io.js"></script>-->
-<script> 
-
-try {
-
-    const ws  = io();
-    
-    // websocket kanavat mitä kuunnellaan
-    const parkingLotStatus = 'parkingLotStatus';
-    const updatedParkingSpot = 'updatedParkingSpot';
-
-    // tää tapahtuu aina kun sivu päivitetään
-    ws.on(parkingLotStatus, (message) => {
-        console.log('kaikki parkkipaikat: ', message);
-        changeColors(message);
-    });
-
-    const changeColors = (spots) => {
-        for(let spot of spots) {
-            const path = document.getElementById(spot.name);
- 
-                if(spot.fields.state && !spot.fields.inva) {
-                    path.setAttribute("fill", "#26A96C");
-                } else if(spot.fields.inva && spot.fields.inva) {
-                    path.setAttribute("fill", "#0892d0");
-                }
-                if(!spot.fields.state) {
-                    path.setAttribute("fill", "#ff3232");
-                }
-            }
-    }
-    // tää tapahtuu aina kun auto tulee tai lähtee parkkipaikalta
-    ws.on(updatedParkingSpot, (message) => {
-        console.log('päivitetty parkkipaikka: ', message);
-        changeColors([message]);
-    })
-} catch(err) {
-    console.warn("Ei nettiä");
-}
-
-</script>
 <script src="js/main.js"></script>
 </body>
 </html>
