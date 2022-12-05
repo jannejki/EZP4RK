@@ -166,14 +166,18 @@
 
 //smoothscroll
 function aboutdiv() {
-                var elem = document.getElementById("aboutdiv");
-                elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
-            }
+    var elem = document.getElementById("aboutdiv");
+    elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
+}
 
 function botdiv() {
-                var elem = document.getElementById("botdiv");
-                elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
-            }
+    var elem = document.getElementById("botdiv");
+    elem.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});;
+}
+function homediv() {
+    alert("This is the homepage its just for aesthetics!");
+    return false;
+}
 </script>
 
 <!-- Tää socket.io script pitää olla ennen scriptiä missä käytetää websocketia-->
