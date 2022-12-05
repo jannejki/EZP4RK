@@ -196,7 +196,7 @@ p {
 /***FOOTER***/
 .bot {
     margin: 50px auto;
-    width: 80%;
+    width: 68%;
     background-image: linear-gradient(rgba(139, 149, 201, 0.8), rgba(0, 0, 0, 0.8)), url("./images/meds.jpg");
     background-position: center;
     background-size: cover;
@@ -206,7 +206,7 @@ p {
 }
 .bot h1 {
     color: white;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     padding: 0;
 }
 .btn {
@@ -271,25 +271,10 @@ p {
     nav img {
         width: 60px;
     }
-    .parking {
-        
-    }
     .parkingspots {
         display: inline-block;
         padding-top: 30px;
         padding-left: 10px;
-        /**SVG KUVA LEIKKAANTUU MUTTA PYSYY KESKELLÄ***/
-        /*display: flex;
-        justify-content: center;*/
-        /*margin: auto;*/
-
-        /**KOKO KUVA PYSYY KESKELLÄ, MUTTA LEFT ATRIBUUTTI ON NÄYTTÖ KOHTAINEN**/
-        /*position: relative;
-        left: -19%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-        transform: scale(0.8);*/
     }
     
 }
