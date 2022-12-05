@@ -97,7 +97,7 @@ nav .menu {
     color: white;
 }
 .ab {
-    width: 80%;
+    width: 1025px;
     margin: auto;
     text-align: center;
     padding-top: 100px;
@@ -230,6 +230,9 @@ p {
     .bot {
         width: 670px;
     }
+    .ab {
+        width: 670px;
+    }
 }
 @media(max-width: 700px) {
     .text-box h1 {
@@ -282,6 +285,9 @@ p {
         padding-left: 10px;
     }
     .bot {
+        width: 320px;
+    }
+    .ab {
         width: 320px;
     }
     
