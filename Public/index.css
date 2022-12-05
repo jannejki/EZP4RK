@@ -196,7 +196,7 @@ p {
 /***FOOTER***/
 .bot {
     margin: 50px auto;
-    width: 68%;
+    width: 1025px;
     background-image: linear-gradient(rgba(139, 149, 201, 0.8), rgba(0, 0, 0, 0.8)), url("./images/meds.jpg");
     background-position: center;
     background-size: cover;
@@ -226,6 +226,11 @@ p {
     transition: 1s;
 }
 /***MEDIA***disaploin sivuttais liike puhelinkoossa*/
+@media(max-width: 1050px) {
+    .bot {
+        width: 670px;
+    }
+}
 @media(max-width: 700px) {
     .text-box h1 {
         font-size: 60px;
@@ -275,6 +280,9 @@ p {
         display: inline-block;
         padding-top: 30px;
         padding-left: 10px;
+    }
+    .bot {
+        width: 320px;
     }
     
 }
