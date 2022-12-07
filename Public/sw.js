@@ -1,4 +1,4 @@
-var cacheName = 'v3';
+var cacheName = 'v4';
 
 var filesToCache = [
     './manifest.json',
@@ -67,7 +67,5 @@ self.addEventListener("fetch", (event) => {
             console.log("err");
             return await (caches.match("./offline.html"));
         }
-
     })());
-
 });
