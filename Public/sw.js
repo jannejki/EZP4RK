@@ -55,14 +55,20 @@ let timeout;
 self.addEventListener("fetch", (event) => {
     console.log(event.request.url);
     event.respondWith((async () => {
-        const cachedResponse = await caches.match(event.request);
-        if (cachedResponse) {
-            console.log("cachedResponse: ", event.request.url);
-            return cachedResponse;
-        }
         try {
+
             const rsp = await fetch(event.request);
-            return rsp;
+            if (rsp.status == 200) {
+                return rsp;
+            } else {
+
+                const cachedResponse = await caches.match(event.request);
+                if (cachedResponse) {
+                    console.log("cachedResponse: ", event.request.url);
+                    return cachedResponse;
+                }
+            } throw ("error");
+
         } catch (err) {
             console.log("err");
             return await (caches.match("./offline.html"));
